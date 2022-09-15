@@ -156,6 +156,9 @@ export const environment = {
       'thumbnail': './assets/media/demos/demo20.png'
     },
   },
+
+  dburl:"http://localhost:3228/api/v1/authentication/user/getAll"
+ 
 };
 
 /*

@@ -13,6 +13,8 @@ import {
   DropdownMenusModule,
   WidgetsModule,
 } from '../../_metronic/partials';
+import { AllUsersComponent } from './all-users/all-users.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import {
     CampaignsComponent,
     DocumentsComponent,
     ConnectionsComponent,
+    AllUsersComponent,
+
   ],
   imports: [
     CommonModule,

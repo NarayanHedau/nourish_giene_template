@@ -13,6 +13,7 @@ import { AuthService } from './modules/auth/services/auth.service';
 import { environment } from 'src/environments/environment';
 // #fake-start#
 import { FakeAPIService } from './_fake/fake-api.service';
+import { UserService } from './modules/profile/services/user.service';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -45,12 +46,13 @@ function appInitializer(authService: AuthService) {
     NgbModule,
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializer,
-      multi: true,
-      deps: [AuthService],
-    },
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: appInitializer,
+    //   multi: true,
+    //   deps: [AuthService],
+    // },
+    UserService
   ],
   bootstrap: [AppComponent],
 })
