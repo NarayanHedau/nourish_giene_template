@@ -1,1 +1,36 @@
-<p>all-users works!</p>
+<div class="form-group mx-sm-3 mb-2">
+         
+    <input type="number" class="form-control"  #page    id="inputPassword2" placeholder="" style="width: 400px;">
+    <button type="submit" class="btn btn-primary mb-2" (click)="getvalue(page)">submit</button>
+</div>
+
+<table  class="table table-striped">  
+    <thead>  
+        <tr>  
+          <th>Name</th>  
+          <th>Email</th>  
+          <th>Mobile Number</th>  
+          <th>Country</th>  
+          <th>State</th>  
+          <th>City</th>  
+        </tr>  
+    </thead>  
+    <tbody>
+        
+        
+
+        <ng-container  *ngFor="let i of userdata| paginate: { itemsPerPage:  value, currentPage: p } ">
+            <tr>  
+                 
+                <td>{{i.name}}</td>  
+                <td>{{i.email}}</td>  
+                <td>{{i.mobileNumber}}</td>  
+                <td>{{i.country}}</td> 
+                <td>{{i.state}}</td> 
+                <td>{{i.city}}</td>  
+              </tr> 
+           
+        </ng-container >
+        <pagination-controls (pageChange)="p = $event"></pagination-controls> 
+    </tbody>  
+  </table>  

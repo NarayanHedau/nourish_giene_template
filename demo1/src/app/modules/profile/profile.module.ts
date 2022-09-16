@@ -14,7 +14,7 @@ import {
   WidgetsModule,
 } from '../../_metronic/partials';
 import { AllUsersComponent } from './all-users/all-users.component';
-import { HttpClientModule } from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     DropdownMenusModule,
     WidgetsModule,
     CardsModule,
+    NgxPaginationModule
+    
   ],
 })
 export class ProfileModule {}
