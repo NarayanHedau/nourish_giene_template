@@ -157,7 +157,11 @@ export const environment = {
     },
   },
 
-  dburl:"http://localhost:3228/api/v1/authentication/user/getAll"
+
+  dburl:"http://localhost:3228/api/v1/",
+
+  
+
  
 };
 

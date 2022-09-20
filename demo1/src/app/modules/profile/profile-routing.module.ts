@@ -7,6 +7,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProfileComponent } from './profile.component';
 import { ConnectionsComponent } from './connections/connections.component';
 import { AllUsersComponent } from './all-users/all-users.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
        path:'All-users',
        component:AllUsersComponent,
       },
+      {
+        path:'registration',
+        component:RegistrationComponent,
+       },
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: '**', redirectTo: 'overview', pathMatch: 'full' },
     ],

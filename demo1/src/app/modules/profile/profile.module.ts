@@ -16,6 +16,9 @@ import {
 import { AllUsersComponent } from './all-users/all-users.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 
+import { RegistrationComponent } from './registration/registration.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     ProfileComponent,
@@ -25,6 +28,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     DocumentsComponent,
     ConnectionsComponent,
     AllUsersComponent,
+  
+    RegistrationComponent,
 
   ],
   imports: [
@@ -34,7 +39,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     DropdownMenusModule,
     WidgetsModule,
     CardsModule,
-    NgxPaginationModule
+    NgxPaginationModule,ReactiveFormsModule
     
   ],
 })

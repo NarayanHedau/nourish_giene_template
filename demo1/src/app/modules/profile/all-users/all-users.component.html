@@ -1,18 +1,32 @@
-<div class="form-group mx-sm-3 mb-2">
+
+<div class="row">
+    <div class="col-md-6">
          
-    <input type="number" class="form-control"  #page    id="inputPassword2" placeholder="" style="width: 400px;">
-    <button type="submit" class="btn btn-primary mb-2" (click)="getvalue(page)">submit</button>
+        <input type="number" class="form-control"  #page    id="inputPassword2" placeholder="" style="width: 400px;">
+        
+    </div>
+    <div class="col-md-3">
+        <button type="submit" class="btn btn-primary mb-2" (click)="getvalue(page)">submit</button>
+    </div>
+    <div class="col-md-3">
+        
+    
+        <button class="add_user"  [routerLink]="['/crafted/pages/profile/registration']" style="font-size: 14px;"><b>Add User</b></button>
+    </div>
 </div>
+
 
 <table  class="table table-striped">  
     <thead>  
-        <tr>  
+        <tr style="text-align: center; font-size: 16px; background-color:bisque;">  
           <th>Name</th>  
           <th>Email</th>  
           <th>Mobile Number</th>  
           <th>Country</th>  
           <th>State</th>  
-          <th>City</th>  
+          <th>City</th> 
+          <th>Update</th> 
+          <th>Delete</th>  
         </tr>  
     </thead>  
     <tbody>
@@ -24,10 +38,13 @@
                  
                 <td>{{i.name}}</td>  
                 <td>{{i.email}}</td>  
-                <td>{{i.mobileNumber}}</td>  
-                <td>{{i.country}}</td> 
-                <td>{{i.state}}</td> 
-                <td>{{i.city}}</td>  
+                <td style="text-align: center;">{{i.mobileNumber}}</td>  
+                <td style="text-align: center;">{{i.country}}</td> 
+                <td style="text-align: center;">{{i.state}}</td> 
+                <td style="text-align: center;">{{i.city}}</td>  
+                <td style="text-align: center; cursor: pointer;"><i class="fa fa-edit" style="font-size:20px;color:green;"></i></td>
+                <td style="text-align: center;"><i (click)="deleteUser(i._id
+                    )" class="fa fa-trash" aria-hidden="true" style="font-size:20px;color:red"></i></td>
               </tr> 
            
         </ng-container >

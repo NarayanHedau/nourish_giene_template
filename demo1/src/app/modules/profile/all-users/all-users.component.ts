@@ -9,11 +9,36 @@ import { UserService } from '../services/user.service';
 })
 export class AllUsersComponent implements OnInit {
   p: number = 1;
-  constructor(private _ser:UserService) { }
+  constructor(private _ser:UserService) {
+    this.getalluser()
+   
+   }
  userdata:any=[]
   ngOnInit(): void {
 
-    this._ser.getUserdata().subscribe((res:any)=>{
+  }
+
+
+  value:number=5;
+  getvalue(data:any){
+    console.log("data bvalue", data.value)
+ this.value=data.value
+  }
+  deleteUser(i:any){
+    console.log(i)
+    this._ser.deleteUser(i).subscribe((result)=>{
+      
+     console.log( this.getalluser());
+      console.warn("result", result)
+    })
+
+  }
+
+
+
+
+getalluser(){
+  return this._ser.getUserdata().subscribe((res:any)=>{
    
     this.userdata=res.data;
     console.log("data",this.userdata);
@@ -21,13 +46,6 @@ export class AllUsersComponent implements OnInit {
     },(err:any)=>{
       console.log(err)
     })
-  }
-
-
-  value:any
-  getvalue(data:any){
-    console.log("data bvalue", data.value)
- this.value=data.value
-  }
+}
 
 }

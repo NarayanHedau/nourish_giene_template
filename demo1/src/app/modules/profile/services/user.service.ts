@@ -14,6 +14,9 @@ export class UserService {
 
   getUserdata(){
    // console.log("data", this.http.get(this.dburl).subscribe(res=>console.log(res)))   
-    return this.http.get(environment.dburl)
+    return this.http.get(environment.dburl + "authentication/user/getAll")
+  }
+  deleteUser(id:any){
+    return this.http.delete(environment.dburl + "users/deleteUser/" + id)
   }
 }
