@@ -41,8 +41,9 @@
                 <td style="text-align: center;">{{i.mobileNumber}}</td>  
                 <td style="text-align: center;">{{i.country}}</td> 
                 <td style="text-align: center;">{{i.state}}</td> 
-                <td style="text-align: center;">{{i.city}}</td>  
-                <td style="text-align: center; cursor: pointer;"><i class="fa fa-edit" style="font-size:20px;color:green;"></i></td>
+                <td style="text-align: center;">{{i.city}}</td> 
+         
+                <td style="text-align: center; cursor: pointer;"><a [routerLink]="['/crafted/pages/profile/update-registration',i._id]" routerLinkActive="router-link-active" ><i class="fa fa-edit" style="font-size:20px;color:green;"></i></a></td>
                 <td style="text-align: center;"><i (click)="deleteUser(i._id
                     )" class="fa fa-trash" aria-hidden="true" style="font-size:20px;color:red"></i></td>
               </tr> 

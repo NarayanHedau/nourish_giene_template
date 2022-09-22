@@ -19,4 +19,9 @@ export class UserService {
   deleteUser(id:any){
     return this.http.delete(environment.dburl + "users/deleteUser/" + id)
   }
+
+
+  getByUser(id:any){
+    return this.http.get(environment.dburl + "users/getUser/"+ id)
+  }
 }

@@ -1,25 +1,25 @@
 
-<form class="reg_form" [formGroup]="regForm" (ngSubmit)="save()">
+<form class="reg_form" [formGroup]="updateRegForm" (ngSubmit)="save()">
     <div class="main" style=" width:100%">
-        <h1 class="signUp_head" >Add New User</h1><br>
+        <h1 class="signUp_head" >Update User</h1><br>
 
 
 
         <div class="model">
             <label class="label">Name</label><label class="require">*</label><br>
             <input type="text" class="text"  placeholder="Enter Name" formControlName="name"><br>
-            <div class = "error_class" *ngIf="submitted && regForm.get('name')?.errors"> Please Enter Your Name
+            <div class = "error_class" *ngIf="submitted && updateRegForm.get('name')?.errors"> Please Enter Your Name
                 <div class="validation"
-                    *ngIf="(regForm.get('name')?.dirty || regForm.get('name')?.touched) && regForm.get('name')?.invalid">
+                    *ngIf="(updateRegForm.get('name')?.dirty || updateRegForm.get('name')?.touched) && updateRegForm.get('name')?.invalid">
                    </div>
             </div><br>
 
 
             <Label class="label">Email</Label><label class="require">*</label><br>
             <input type="email" class="text" placeholder="Enter Email" formControlName="email"><br>
-            <div class = "error_class" *ngIf="submitted && regForm.get('email')?.errors">Please Enter Your email
+            <div class = "error_class" *ngIf="submitted && updateRegForm.get('email')?.errors">Please Enter Your email
                 <div class="validation"
-                *ngIf="(regForm.get('email')?.dirty || regForm.get('email')?.touched) && regForm.get('email')?.invalid">
+                *ngIf="(updateRegForm.get('email')?.dirty || updateRegForm.get('email')?.touched) && updateRegForm.get('email')?.invalid">
                 </div>
             </div><br>
 
@@ -27,21 +27,12 @@
             <label class="label">Phone Number</label><label class="require">*</label><br>
             <input type="number" class="text" [maxlength]="12" placeholder="Enter your Phone Number"
                 formControlName="phoneNumber"><br>
-                <div class = "error_class" *ngIf="submitted && regForm.get('phoneNumber')?.errors">Please Enter Your Phone Number
+                <div class = "error_class" *ngIf="submitted && updateRegForm.get('phoneNumber')?.errors">Please Enter Your Phone Number
                     <div class="validation"
-                *ngIf="(regForm.get('phoneNumber')?.dirty || regForm.get('phoneNumber')?.touched) && regForm.get('phoneNumber')?.invalid">
+                *ngIf="(updateRegForm.get('phoneNumber')?.dirty || updateRegForm.get('phoneNumber')?.touched) && updateRegForm.get('phoneNumber')?.invalid">
                 </div>
                 </div><br>
 
-
-            <Label class="label">Password</Label><label class="require">*</label><br>
-            <input type="password" class="text"  placeholder="Enter Password" formControlName="password"><br>
-            <div class = "error_class" *ngIf="submitted && regForm.get('password')?.errors">Please Enter Your Password
-                <div class="validation"
-                *ngIf="(regForm.get('password')?.dirty || regForm.get('password')?.touched) && regForm.get('password')?.invalid">
-                </div>
-            </div>
-            <br><br>
 
             <Label class="label">Country</Label><label class="require">*</label><br>
             <select
@@ -94,4 +85,3 @@
 
 
 
-{{massage}}

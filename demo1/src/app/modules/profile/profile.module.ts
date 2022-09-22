@@ -18,6 +18,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 import { RegistrationComponent } from './registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateRegistrationComponent } from './update-registration/update-registration.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AllUsersComponent,
   
     RegistrationComponent,
+        UpdateRegistrationComponent,
 
   ],
   imports: [
