@@ -15,7 +15,7 @@ export class RegistrationComponent implements OnInit {
 
 
   countries: any = [];
-  addProduct: FormGroup = new FormGroup({});
+
   statee = new FormControl('');
   countryy = new FormControl('');
 
@@ -46,11 +46,13 @@ export class RegistrationComponent implements OnInit {
   massage=""
   
 save(){
- // console.log(this.regForm.value)
+  console.log(this.regForm.value)
  this.submitted=true;
  if(this.regForm.invalid){
   return
  }
+
+
 this.ser.register(this.regForm.value).subscribe((res:any)=>{
   console.log(res);
   this.massage=" Successfull";
@@ -90,19 +92,18 @@ st: any;
 getState(event: any) {
   this.st = this.countries.filter(
     (e: any) => e.isoCode === event.target.value
-  );
+    );
   setTimeout(() => {
-    this.addProduct
+    this.regForm
       .get('CountryOfOrigin')
       ?.patchValue(this.st[0].name);
-
-    this.countryCode = country;
 
     this.ser
       .state(this.st[0].isoCode)
       .pipe(map((data: any) => data.data))
       .subscribe((res: any) => {
         this.state = res;
+
       });
   }, 500);
 
@@ -118,15 +119,16 @@ city: any;
 getcity(event: any) {
   this.countryCode = this.st[0].isoCode;
   const cCode = this.countryCode + '/';
+
   const scode = this.state.filter(
     (e: any) => e.isoCode === event.target.value
   );
-
+console.log("getcity", scode)
   setTimeout(() => {
     console.log('st_ate', st_ate);
 
     this.stateCode = scode[0].name;
-    this.addProduct.get('state')
+    this.regForm.get('state')
       ?.patchValue(this.stateCode);
 
     this.ser

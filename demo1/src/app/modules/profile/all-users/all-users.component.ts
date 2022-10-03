@@ -9,20 +9,25 @@ import { UserService } from '../services/user.service';
 })
 export class AllUsersComponent implements OnInit {
   p: number = 1;
+
+  selectvalue=[
+    {value:5},
+    {value:10}, {value:20}
+  ]
   constructor(private _ser:UserService) {
-    this.getalluser()
+   
    
    }
  userdata:any=[]
   ngOnInit(): void {
-
+    this.getalluser()
   }
 
 
   value:number=5;
   getvalue(data:any){
-    console.log("data bvalue", data.value)
- this.value=data.value
+    console.log("data bvalue", data)
+ this.value=data
   }
   deleteUser(i:any){
     console.log(i)
@@ -30,6 +35,7 @@ export class AllUsersComponent implements OnInit {
       
      console.log( this.getalluser());
       console.warn("result", result)
+      this.ngOnInit()
     })
 
   }
@@ -48,4 +54,29 @@ getalluser(){
     })
 }
 
+searchItem:string=""
+// applyFilter(event:any) {
+//   const filterValue = event.target.value;
+//   console.log(filterValue)
+//   this.userdata.filter = filterValue.trim().toLowerCase();
+// }
+
+applyFilter(data:any){
+  const query= `?userName=`+ data.value
+ 
+ 
+  console.log(data.value)
+}
+
+
+name(){
+   this.userdata.sort((a:any, b:any) => a.name.localeCompare(b.name))
+//   let name:any =[];
+//  this.userdata.forEach((ele:any) => {
+//   name.push(ele.name);
+//  }); 
+//  console.log(">>>>", name)
+// console.log(name.sort())
+// return name.sort()
+}
 }

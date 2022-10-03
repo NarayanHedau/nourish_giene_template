@@ -15,6 +15,9 @@ export class ReistartionService {
     return this._httpclien.post(environment.dburl + "authentication/register",data)
    }
 
+   login(data:any){
+    return this._httpclien.post(environment.dburl +"authentication/login",data, {responseType: 'text'})
+   }
  
  
    Getall_Country(){
@@ -32,6 +35,9 @@ export class ReistartionService {
      return this._httpclien.get(environment.dburl +"countryStateCity/cities/"+countrycode +statecode );
  
  
+   }
+   updateRegistration(id:any, data:any){
+    return this._httpclien.put(environment.dburl +"authentication/update/profile/"+id, data);
    }
  
 }

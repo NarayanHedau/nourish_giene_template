@@ -13,10 +13,10 @@ import { UserService } from '../services/user.service';
 })
 export class UpdateRegistrationComponent implements OnInit {
   maxlength=12;
-
+ co:any
 param:any
   countries: any = [];
-  addProduct: FormGroup = new FormGroup({});
+
   statee = new FormControl('');
   countryy = new FormControl('');
   constructor(private _fb:FormBuilder,private ser:ReistartionService, private _rout:Router, private activated:ActivatedRoute ,private user:UserService) { }
@@ -42,37 +42,30 @@ param:any
 
   this.user.getByUser(this.param).pipe(map((data:any)=> data.data)).subscribe(res=>{
     console.log("data",res);
-this.updateRegForm.patchValue(res)
-  })
+ this.updateRegForm.patchValue(res);
+
+    this.co=res.CountryOfOrigin
+
+})
   }
 
   submitted=false
 
 
 
-//   getByupdate(){
-// this.user.updateUser(this.param).subscribe(res=>{
-//   console.log(res)
-// })
-//   }
 
 
   massage=""
-  
+  id:any;
 save(){
- // console.log(this.updateRegForm.value)
+ 
  this.submitted=true;
  if(this.updateRegForm.invalid){
   return
  }
-this.ser.register(this.updateRegForm.value).subscribe((res:any)=>{
+this.ser.updateRegistration(this.param,this.updateRegForm.value).subscribe((res:any)=>{
   console.log(res);
-  this.massage=" Successfull";
-  
-localStorage.setItem("login", res )
-  if(res){
-    this._rout.navigate(["index"])  
-   }
+
 },error=>{
   console.log(error);
   this.massage=error.message
@@ -102,7 +95,7 @@ localStorage.setItem("login", res )
       (e: any) => e.isoCode === event.target.value
     );
     setTimeout(() => {
-      this.addProduct
+      this.updateRegForm
         .get('CountryOfOrigin')
         ?.patchValue(this.st[0].name);
   
@@ -136,7 +129,7 @@ localStorage.setItem("login", res )
       console.log('st_ate', st_ate);
   
       this.stateCode = scode[0].name;
-      this.addProduct.get('state')
+      this.updateRegForm.get('state')
         ?.patchValue(this.stateCode);
   
       this.ser

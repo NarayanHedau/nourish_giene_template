@@ -61,10 +61,7 @@
 
           <Label class="label">State</Label><label class="require">*</label><br>
           <select
-          class="form-select"
-          (change)="getcity($event)"
-          [formControl]="statee"
-        >
+          class="form-select" (change)="getcity($event)" [formControl]="statee">
           <option value="">select your state</option>
           <option *ngFor="let item of state" [value]="item.isoCode">
             {{ item.name }}

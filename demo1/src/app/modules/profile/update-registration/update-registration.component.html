@@ -39,7 +39,7 @@
             class="form-select mb-3"
             aria-label="Default select example"
             (change)="getState($event)"
-            name="CountryOfOrigin"
+            name="CountryOfOrigin"  selected="co"
           >
             <option  selected value="">Select your Country</option>
             <option *ngFor="let item of countries" [value]="item.isoCode">
@@ -75,7 +75,7 @@
 
 
 
-            <button type="submit" class="signUp-btn" >Sign up</button>
+            <button type="submit" class="signUp-btn" >Update User</button>
         </div>
 
 

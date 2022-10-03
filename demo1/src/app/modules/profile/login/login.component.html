@@ -1,0 +1,26 @@
+<form class="reg_form" [formGroup]="loginForm" (ngSubmit)="save()">
+    <div class="main">
+          <h1 class="signUp_head">Sign In</h1><br>
+          <div class="model">
+              
+              <Label class="label">Email</Label><label class="require">*</label><br>
+              <input type="email" class="text" placeholder="Enter Email" formControlName="email"><br>
+              <div class = "error_class" *ngIf="submitted && loginForm.get('email')?.errors">Please Enter Your email
+                <div class="validation"
+                *ngIf="(loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.invalid">
+                </div>
+            </div><br>
+              <Label class="label">Password</Label><label class="require">*</label><br>
+              <input type="password" class="text" placeholder="Enter Password" formControlName="password"><br>
+              <div class = "error_class" *ngIf="submitted && loginForm.get('password')?.errors">Please Enter Your Password
+                <div class="validation"
+                *ngIf="(loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.invalid">
+                </div>
+            </div><br><br>
+              <button class="signUp-btn">Login</button><br>
+              <button class="signUp-btn" [routerLink]="['/crafted/pages/profile/registration']">Register</button><br><br><br>
+
+              <!-- <p><a class="signUp-btn" [routerLink]="['/crafted/pages/profile/registration']"  >Sign Up</a></p> -->
+          </div>
+    </div>
+    </form>
